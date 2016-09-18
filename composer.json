@@ -19,7 +19,5 @@
         "illuminate/encryption": "~5.3",
         "illuminate/http": "~5.3",
         "illuminate/support": "~5.3"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }
