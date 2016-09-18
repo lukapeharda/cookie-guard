@@ -1,6 +1,8 @@
 {
     "name": "lukapeharda/cookie-guard",
     "description": "Provides authorization from cookie token.",
+    "license": "MIT",
+    "keywords": ["laravel", "passport", "guard", "cookie"],
     "authors": [
         {
             "name": "Luka Peharda",
@@ -16,7 +18,7 @@
         "illuminate/database": "~5.3",
         "illuminate/encryption": "~5.3",
         "illuminate/http": "~5.3",
-        "illuminate/support": "~5.3",
+        "illuminate/support": "~5.3"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
