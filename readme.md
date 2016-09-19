@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Cookie Guard is a Laravel API authentication package using cookie tokens. Most of its inner workings are taken from Laravel Passport package.
+Cookie Guard is a Laravel API authentication package using cookie tokens. Most of its inner workings are taken from Laravel Passport package. It is meant to be used to consume your own API with JavaScript.
 
 ## Installation
 
@@ -43,6 +43,8 @@ Add the `CreateFreshApiToken` middleware to your `web` middleware group:
 ],
 ```
 
+## Usage
+
 This middleware will attach a `laravel_token` cookie to your outgoing responses.
 
 Finally, in your `config/auth.php` configuration file, you should set the `driver` option of the `api` authentication guard to `cookie`. This will instruct your application to use CookieGuards's `CookieGuard` when authenticating incoming API requests:
@@ -60,6 +62,16 @@ Finally, in your `config/auth.php` configuration file, you should set the `drive
 ],
 ```
 
+This middleware will attach a laravel_token cookie to your outgoing responses. This cookie contains an encrypted JWT that CookieGuard will use to authenticate API requests from your JavaScript application.
+
+When using this method of authentication, you will need to send the CSRF token with every request via the X-CSRF-TOKEN header. Laravel will automatically send this header if you are using the default Vue configuration that is included with the framework:
+
+```php
+Vue.http.interceptors.push((request, next) => {
+    request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
+    next();
+});
+```
 
 ## License
 
