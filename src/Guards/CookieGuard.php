@@ -96,7 +96,7 @@ class CookieGuard
     protected function decodeJwtTokenCookie($request)
     {
         return (array) JWT::decode(
-            $this->encrypter->decrypt($request->cookie('laravel_token')),
+            $this->encrypter->decrypt($request->cookie('laravel_token'), false),
             $this->encrypter->getKey(), ['HS256']
         );
     }
